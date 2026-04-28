@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Анна & Микита</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Cormorant:wght@300;400&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+
+body {
+  margin: 0;
+  font-family: 'Cormorant', serif;
+  background: #f6f2ee;
+  color: #5c5044;
+  overflow-x: hidden;
+}
+
+/* АНИМАЦИИ */
+.fade {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 1s;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  background:
+  linear-gradient(rgba(246,242,238,0.5), rgba(246,242,238,1)),
+  url('photo.jpg') center/cover;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 52px;
+  letter-spacing: 2px;
+}
+
+.date {
+  letter-spacing: 4px;
+  margin-top: 10px;
+}
+
+.subtitle {
+  font-family: 'Great Vibes', cursive;
+  font-size: 26px;
+  margin-top: 15px;
+}
+
+/* СЕКЦИИ */
+.section {
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+}
+
+/* ДЕКОР */
+.section::before {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, rgba(200,182,166,0.2), transparent);
+  top: 10%;
+  left: 10%;
+}
+
+/* КАРТОЧКИ */
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 25px;
+  max-width: 420px;
+  margin: 20px auto;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* ДРЕСС */
+.dress {
+  background: #efe7df;
+  padding: 40px;
+  border-radius: 30px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* RSVP */
+.rsvp {
+  background: white;
+  padding: 35px;
+  border-radius: 25px;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+input, select {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+button {
+  background: #c8b6a6;
+  color: white;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #b79f8d;
+}
+
+/* ТАЙМЕР */
+.timer {
+  font-size: 22px;
+  margin-top: 20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="hero fade">
+  <h1>Анна & Микита</h1>
+  <div class="date">26.06.26</div>
+  <div class="subtitle">Наше весілля</div>
+</section>
+
+<section class="section fade">
+  <div class="card">
+    <h2>Розпис</h2>
+    <p>Дарницький РАЦС<br>12:30</p>
+  </div>
+
+  <div class="card">
+    <h2>Святкування</h2>
+    <p>Prynada Ukrainian Cafe<br>16:00</p>
+  </div>
+</section>
+
+<section class="section fade">
+  <div class="dress">
+    <h2>Дрес-код</h2>
+    <p>Пастельні відтінки</p>
+    <p><b>Без білого</b></p>
+  </div>
+</section>
+
+<section class="section fade">
+  <div class="card">
+    <h2>Побажання</h2>
+    <p>Будемо раді пляшці вашого улюбленого напою ❤️</p>
+  </div>
+</section>
+
+<section class="section fade">
+  <div class="rsvp">
+    <h2>Підтвердження</h2>
+    <form action="https://docs.google.com/forms/d/e/1FAIpQLScbwcTW16SFVboCs934TNyi0B2MzIOTT-m_sdCFsF7mZorZDg/formResponse" method="POST" target="_blank">
+      <input type="text" name="entry.2005620554" placeholder="Ваше ім’я" required>
+      <select name="entry.1045781291" required>
+        <option value="">Оберіть варіант</option>
+        <option value="Тільки святкування">Тільки святкування</option>
+        <option value="Розпис + святкування">Розпис + святкування</option>
+        <option value="Не зможу бути">Не зможу бути</option>
+      </select>
+      <button type="submit">Відправити</button>
+    </form>
+  </div>
+</section>
+
+<script>
+// анимация появления
+const fades = document.querySelectorAll('.fade');
+
+window.addEventListener('scroll', () => {
+  fades.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if (top < window.innerHeight - 100) {
+      el.classList.add('show');
+    }
+  });
+});
+</script>
+
+</body>
+</html>
